@@ -5,6 +5,7 @@ const translations = {
         'nav.biography': 'Біографія',
         'nav.media': 'Медіа',
         'nav.contacts': 'Контакти',
+        'home.name': 'Єлизавета Шаповалова',
         'home.description': 'Єлизавета Шаповалова — піаністка, яка поєднує технічну майстерність з глибокою емоційною виразністю. Її виконання відзначається тонким розумінням музичної архітектури та здатністю передавати найтонші нюанси композиторського задуму. Кожен концерт стає подорожжю через різноманітність стилів та епох, від бароко до сучасної музики, демонструючи універсальність та професійну зрілість виконавця.',
         'biography.title': 'Біографія',
         'biography.beginnings.title': 'Музичні початки',
@@ -20,6 +21,7 @@ const translations = {
         'media.gallery.title': 'Фотогалерея',
         'contacts.title': 'Контакти',
         'contacts.description': 'Для концертних пропозицій та співпраці звертайтеся за електронною поштою.',
+        'footer.name': 'Єлизавета Шаповалова',
         'footer.rights': 'Всі права захищені.'
     },
     en: {
@@ -27,6 +29,7 @@ const translations = {
         'nav.biography': 'Biography',
         'nav.media': 'Media',
         'nav.contacts': 'Contacts',
+        'home.name': 'Yelyzaveta Shapovalova',
         'home.description': 'Yelyzaveta Shapovalova is a pianist who combines technical mastery with deep emotional expressiveness. Her performances are distinguished by a subtle understanding of musical architecture and the ability to convey the finest nuances of the composer\'s intent. Each concert becomes a journey through the diversity of styles and epochs, from baroque to contemporary music, demonstrating the versatility and professional maturity of the performer.',
         'biography.title': 'Biography',
         'biography.beginnings.title': 'Musical Beginnings',
@@ -42,6 +45,7 @@ const translations = {
         'media.gallery.title': 'Photo Gallery',
         'contacts.title': 'Contacts',
         'contacts.description': 'For concert proposals and collaboration, please contact via email.',
+        'footer.name': 'Yelyzaveta Shapovalova',
         'footer.rights': 'All rights reserved.'
     },
     de: {
@@ -49,6 +53,7 @@ const translations = {
         'nav.biography': 'Biografie',
         'nav.media': 'Medien',
         'nav.contacts': 'Kontakte',
+        'home.name': 'Yelyzaveta Shapovalova',
         'home.description': 'Yelyzaveta Shapovalova ist eine Pianistin, die technische Meisterschaft mit tiefem emotionalem Ausdruck verbindet. Ihre Aufführungen zeichnen sich durch ein subtiles Verständnis der musikalischen Architektur und die Fähigkeit aus, die feinsten Nuancen der kompositorischen Absicht zu vermitteln. Jedes Konzert wird zu einer Reise durch die Vielfalt der Stile und Epochen, vom Barock bis zur zeitgenössischen Musik, und demonstriert die Vielseitigkeit und professionelle Reife der Interpretin.',
         'biography.title': 'Biografie',
         'biography.beginnings.title': 'Musikalische Anfänge',
@@ -64,6 +69,7 @@ const translations = {
         'media.gallery.title': 'Fotogalerie',
         'contacts.title': 'Kontakte',
         'contacts.description': 'Für Konzertvorschläge und Zusammenarbeit kontaktieren Sie uns bitte per E-Mail.',
+        'footer.name': 'Yelyzaveta Shapovalova',
         'footer.rights': 'Alle Rechte vorbehalten.'
     }
 };

@@ -24,14 +24,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <button class="lang-btn active" data-lang="uk">УКР</button>
-        <button class="lang-btn" data-lang="en">ENG</button>
-        <button class="lang-btn" data-lang="de">DEU</button>
-    </div>
-
-    <!-- Navigation -->
+    <!-- Navigation (header with language switcher) -->
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-menu">
@@ -40,6 +33,11 @@
                 <li><a href="#media" data-translate="nav.media">Медіа</a></li>
                 <li><a href="#contacts" data-translate="nav.contacts">Контакти</a></li>
             </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="uk">УКР</button>
+                <button class="lang-btn" data-lang="en">ENG</button>
+                <button class="lang-btn" data-lang="de">DEU</button>
+            </div>
         </div>
     </nav>
 
@@ -51,7 +49,7 @@
                     <img src="assets/images/home/pianist-main.jpg" alt="Yelyzaveta Shapovalova at piano" id="pianist-photo">
                 </div>
                 <div class="home-text">
-                    <h1 class="main-heading">Єлизавета Шаповалова</h1>
+                    <h1 class="main-heading" data-translate="home.name">Єлизавета Шаповалова</h1>
                     <p class="artistic-description" data-translate="home.description">
                         Єлизавета Шаповалова — піаністка, яка поєднує технічну майстерність з глибокою емоційною виразністю. 
                         Її виконання відзначається тонким розумінням музичної архітектури та здатністю передавати найтонші 
@@ -177,7 +175,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Єлизавета Шаповалова. <span data-translate="footer.rights">Всі права захищені.</span></p>
+            <p>&copy; <span id="current-year"></span> <span data-translate="footer.name">Єлизавета Шаповалова</span>. <span data-translate="footer.rights">Всі права захищені.</span></p>
         </div>
     </footer>
 
