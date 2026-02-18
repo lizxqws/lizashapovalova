@@ -41,23 +41,17 @@
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section home-section">
-        <div class="container">
-            <div class="home-content">
-                <div class="home-image">
-                    <img src="assets/images/home/pianist-main.jpg" alt="Yelyzaveta Shapovalova at piano" id="pianist-photo">
-                </div>
-                <div class="home-text">
-                    <h1 class="main-heading" data-translate="home.name">Єлизавета Шаповалова</h1>
-                    <p class="artistic-description" data-translate="home.description">
-                        Єлизавета Шаповалова — піаністка, яка поєднує технічну майстерність з глибокою емоційною виразністю. 
-                        Її виконання відзначається тонким розумінням музичної архітектури та здатністю передавати найтонші 
-                        нюанси композиторського задуму. Кожен концерт стає подорожжю через різноманітність стилів та епох, 
-                        від бароко до сучасної музики, демонструючи універсальність та професійну зрілість виконавця.
-                    </p>
-                </div>
-            </div>
+    <!-- Hero Section (full-width) -->
+    <section id="home" class="hero-section">
+        <div class="hero-background">
+            <img src="assets/images/home/pianist-main.jpg" alt="Yelyzaveta Shapovalova, pianist" class="hero-image" id="pianist-photo">
+            <div class="hero-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-name" data-translate="home.name">Єлизавета Шаповалова</h1>
+            <p class="hero-description" data-translate="home.description">
+                Піаністка, яка поєднує технічну майстерність з глибокою емоційною виразністю. Виконання відзначається тонким розумінням стилю та різноманітністю репертуару від бароко до сучасної музики.
+            </p>
         </div>
     </section>
 
@@ -118,19 +112,26 @@
                 <div class="videos-section">
                     <h3 data-translate="media.videos.title">Відео</h3>
                     <div class="video-grid">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowfullscreen>
-                            </iframe>
+                        <div class="video-item">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube-nocookie.com/embed/aup-MOztuCo?rel=0" 
+                                        title="YouTube video"
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                        referrerpolicy="strict-origin-when-cross-origin"
+                                        allowfullscreen>
+                                </iframe>
+                            </div>
+                            <p class="video-fallback">Переглянути відео на <a href="https://www.youtube.com/watch?v=aup-MOztuCo" target="_blank" rel="noopener noreferrer">YouTube</a></p>
                         </div>
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        <div class="video-item">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     allowfullscreen>
-                            </iframe>
+                                </iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
