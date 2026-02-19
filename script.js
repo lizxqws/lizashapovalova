@@ -5,7 +5,8 @@ const translations = {
         'nav.biography': 'Біографія',
         'nav.media': 'Медіа',
         'nav.contacts': 'Контакти',
-        'home.description': 'Єлизавета Шаповалова — піаністка, яка поєднує технічну майстерність з глибокою емоційною виразністю. Її виконання відзначається тонким розумінням музичної архітектури та здатністю передавати найтонші нюанси композиторського задуму. Кожен концерт стає подорожжю через різноманітність стилів та епох, від бароко до сучасної музики, демонструючи універсальність та професійну зрілість виконавця.',
+        'home.name': 'Єлизавета Шаповалова',
+        'home.description': 'Піаністка, яка поєднує технічну майстерність з глибокою емоційною виразністю. Виконання відзначається тонким розумінням стилю та різноманітністю репертуару від бароко до сучасної музики.',
         'biography.title': 'Біографія',
         'biography.beginnings.title': 'Музичні початки',
         'biography.beginnings.text': 'Музичний шлях Єлизавети Шаповалової почався в ранньому дитинстві, коли вона вперше сіла за фортепіано. З перших акордів стало зрозуміло, що музика стане центральною частиною її життя. Початкова освіта заклала міцний фундамент для подальшого професійного розвитку.',
@@ -20,6 +21,10 @@ const translations = {
         'media.gallery.title': 'Фотогалерея',
         'contacts.title': 'Контакти',
         'contacts.description': 'Для концертних пропозицій та співпраці звертайтеся за електронною поштою.',
+        'contacts.gmail': 'Відкрити в Gmail',
+        'contacts.copy': 'Копіювати email',
+        'contacts.copied': 'Скопійовано!',
+        'footer.name': 'Єлизавета Шаповалова',
         'footer.rights': 'Всі права захищені.'
     },
     en: {
@@ -27,7 +32,8 @@ const translations = {
         'nav.biography': 'Biography',
         'nav.media': 'Media',
         'nav.contacts': 'Contacts',
-        'home.description': 'Yelyzaveta Shapovalova is a pianist who combines technical mastery with deep emotional expressiveness. Her performances are distinguished by a subtle understanding of musical architecture and the ability to convey the finest nuances of the composer\'s intent. Each concert becomes a journey through the diversity of styles and epochs, from baroque to contemporary music, demonstrating the versatility and professional maturity of the performer.',
+        'home.name': 'Yelyzaveta Shapovalova',
+        'home.description': 'A pianist who combines technical mastery with deep emotional expressiveness. Her performances are distinguished by a subtle understanding of style and a repertoire spanning baroque to contemporary music.',
         'biography.title': 'Biography',
         'biography.beginnings.title': 'Musical Beginnings',
         'biography.beginnings.text': 'Yelyzaveta Shapovalova\'s musical journey began in early childhood when she first sat at the piano. From the first chords, it became clear that music would become a central part of her life. Initial education laid a solid foundation for further professional development.',
@@ -42,6 +48,10 @@ const translations = {
         'media.gallery.title': 'Photo Gallery',
         'contacts.title': 'Contacts',
         'contacts.description': 'For concert proposals and collaboration, please contact via email.',
+        'contacts.gmail': 'Open in Gmail',
+        'contacts.copy': 'Copy email',
+        'contacts.copied': 'Copied!',
+        'footer.name': 'Yelyzaveta Shapovalova',
         'footer.rights': 'All rights reserved.'
     },
     de: {
@@ -49,7 +59,8 @@ const translations = {
         'nav.biography': 'Biografie',
         'nav.media': 'Medien',
         'nav.contacts': 'Kontakte',
-        'home.description': 'Yelyzaveta Shapovalova ist eine Pianistin, die technische Meisterschaft mit tiefem emotionalem Ausdruck verbindet. Ihre Aufführungen zeichnen sich durch ein subtiles Verständnis der musikalischen Architektur und die Fähigkeit aus, die feinsten Nuancen der kompositorischen Absicht zu vermitteln. Jedes Konzert wird zu einer Reise durch die Vielfalt der Stile und Epochen, vom Barock bis zur zeitgenössischen Musik, und demonstriert die Vielseitigkeit und professionelle Reife der Interpretin.',
+        'home.name': 'Yelyzaveta Shapovalova',
+        'home.description': 'Eine Pianistin, die technische Meisterschaft mit tiefem emotionalem Ausdruck verbindet. Ihre Aufführungen zeichnen sich durch ein subtiles Stilgefühl und ein Repertoire vom Barock bis zur zeitgenössischen Musik aus.',
         'biography.title': 'Biografie',
         'biography.beginnings.title': 'Musikalische Anfänge',
         'biography.beginnings.text': 'Yelyzaveta Shapovalovas musikalische Reise begann in früher Kindheit, als sie zum ersten Mal am Klavier saß. Von den ersten Akkorden an wurde klar, dass Musik ein zentraler Teil ihres Lebens werden würde. Die erste Ausbildung legte ein solides Fundament für die weitere berufliche Entwicklung.',
@@ -64,12 +75,20 @@ const translations = {
         'media.gallery.title': 'Fotogalerie',
         'contacts.title': 'Kontakte',
         'contacts.description': 'Für Konzertvorschläge und Zusammenarbeit kontaktieren Sie uns bitte per E-Mail.',
+        'contacts.gmail': 'In Gmail öffnen',
+        'contacts.copy': 'E-Mail kopieren',
+        'contacts.copied': 'Kopiert!',
+        'footer.name': 'Yelyzaveta Shapovalova',
         'footer.rights': 'Alle Rechte vorbehalten.'
     }
 };
 
+// Current language (used e.g. for copy button reset)
+let currentLanguage = 'uk';
+
 // Language switching function
 function switchLanguage(lang) {
+    currentLanguage = lang;
     // Update HTML lang attribute
     document.documentElement.lang = lang;
     
@@ -108,6 +127,13 @@ function switchLanguage(lang) {
             btn.classList.add('active');
         }
     });
+
+    // Update mobile toggle label (УКР / ENG / DEU)
+    const toggleCurrent = document.querySelector('.lang-toggle-current');
+    if (toggleCurrent) {
+        const labels = { uk: 'УКР', en: 'ENG', de: 'DEU' };
+        toggleCurrent.textContent = labels[lang] || lang.toUpperCase();
+    }
     
     // Save language preference to localStorage
     localStorage.setItem('preferred-language', lang);
@@ -120,15 +146,41 @@ function initLanguage() {
     switchLanguage(savedLang);
 }
 
-// Set up language switcher buttons
+// Set up language switcher buttons and mobile toggle
 document.addEventListener('DOMContentLoaded', function() {
     initLanguage();
     
+    var languageSwitcher = document.getElementById('language-switcher');
+    var langToggle = document.getElementById('lang-toggle');
+
+    // Mobile: toggle language dropdown
+    if (langToggle && languageSwitcher) {
+        langToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = languageSwitcher.classList.toggle('is-open');
+            langToggle.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+        if (languageSwitcher && languageSwitcher.classList.contains('is-open')) {
+            languageSwitcher.classList.remove('is-open');
+            if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
     // Add event listeners to language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var lang = this.getAttribute('data-lang');
             switchLanguage(lang);
+            // Close mobile dropdown after selecting a language
+            if (languageSwitcher && languageSwitcher.classList.contains('is-open')) {
+                languageSwitcher.classList.remove('is-open');
+                if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     });
     
@@ -138,12 +190,35 @@ document.addEventListener('DOMContentLoaded', function() {
     if (yearElement) {
         yearElement.textContent = currentYear;
     }
+
+    // Copy email button
+    const copyBtn = document.getElementById('copy-email-btn');
+    const contactEmail = document.getElementById('contact-email');
+    if (copyBtn && contactEmail) {
+        copyBtn.addEventListener('click', function() {
+            const email = contactEmail.textContent.trim();
+            const copiedLabel = (translations[currentLanguage] && translations[currentLanguage]['contacts.copied']) || 'Copied!';
+            navigator.clipboard.writeText(email).then(function() {
+                copyBtn.classList.add('copied');
+                copyBtn.textContent = copiedLabel;
+                setTimeout(function() {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.textContent = (translations[currentLanguage] && translations[currentLanguage]['contacts.copy']) || 'Copy email';
+                }, 2000);
+            });
+        });
+    }
     
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (href === '#' || href === '#home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
