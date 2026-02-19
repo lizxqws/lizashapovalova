@@ -144,18 +144,34 @@
 
                 <div class="gallery-section">
                     <h3 data-translate="media.gallery.title">Фотогалерея</h3>
-                    <div class="photo-gallery">
-                        <div class="gallery-item">
-                            <img src="assets/images/gallery/performance-1.jpg" alt="Piano performance">
+                    <div class="carousel" role="region" aria-label="Photo gallery carousel">
+                        <div class="carousel-viewport">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="assets/images/gallery/performance-1.jpg" alt="Piano performance">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/images/gallery/personalphoto.jpg" alt="Personal photo">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/images/gallery/concert-hall.jpg" alt="Concert hall">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="assets/images/gallery/performance-2.jpg" alt="Musical performance">
+                                </div>
+                            </div>
                         </div>
-                        <div class="gallery-item">
-                            <img src="assets/images/gallery/concert-hall.jpg" alt="Concert hall">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/images/gallery/personalphoto.jpg" alt="Personal photo">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="assets/images/gallery/performance-2.jpg" alt="Musical performance">
+                        <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Previous photo">
+                            <span aria-hidden="true">‹</span>
+                        </button>
+                        <button type="button" class="carousel-btn carousel-btn-next" aria-label="Next photo">
+                            <span aria-hidden="true">›</span>
+                        </button>
+                        <div class="carousel-dots" role="tablist" aria-label="Photo slides">
+                            <button type="button" class="carousel-dot active" role="tab" aria-selected="true" aria-label="Photo 1" data-index="0"></button>
+                            <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Photo 2" data-index="1"></button>
+                            <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Photo 3" data-index="2"></button>
+                            <button type="button" class="carousel-dot" role="tab" aria-selected="false" aria-label="Photo 4" data-index="3"></button>
                         </div>
                     </div>
                 </div>

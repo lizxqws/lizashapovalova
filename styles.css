@@ -445,36 +445,120 @@ body {
     border-radius: 16px;
 }
 
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+/* Photo carousel (Media section) */
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.gallery-item {
+.carousel-viewport {
     overflow: hidden;
     border-radius: 16px;
-    box-shadow: var(--shadow-md);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    background: var(--primary-color);
 }
 
-.gallery-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-xl);
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-item img {
+.carousel-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--primary-color);
+}
+
+.carousel-slide img {
     width: 100%;
-    height: 320px;
+    height: 420px;
     object-fit: cover;
     display: block;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
+/* Photos 2 and 3: show full image (contain) and zoom in */
+.carousel-slide:nth-child(2) img {
+    object-fit: contain;
+    object-position: center -80px;
+    transform: scale(2.6);
+    transform-origin: center center;
+}
+
+.carousel-slide:nth-child(3) img {
+    object-fit: contain;
+    object-position: center -40px;
+    transform: scale(3.7);
+    transform-origin: center center;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.carousel-btn:hover {
+    background: var(--white);
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: var(--shadow-lg);
+}
+
+.carousel-btn:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.carousel-btn-prev {
+    left: -24px;
+}
+
+.carousel-btn-next {
+    right: -24px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border-color);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-dot:hover {
+    background: var(--text-light);
+}
+
+.carousel-dot.active {
+    background: var(--accent-color);
+    transform: scale(1.2);
 }
 
 /* Contacts Section */
@@ -647,13 +731,16 @@ body {
         margin-bottom: 40px;
     }
 
-    .photo-gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .carousel-slide img {
+        height: 360px;
     }
 
-    .gallery-item img {
-        height: 280px;
+    .carousel-btn-prev {
+        left: 8px;
+    }
+
+    .carousel-btn-next {
+        right: 8px;
     }
 
     .contacts-content {
@@ -789,13 +876,22 @@ body {
         margin-bottom: 36px;
     }
 
-    .photo-gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
+    .carousel-slide img {
+        height: 280px;
     }
 
-    .gallery-item img {
-        height: 200px;
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .carousel-btn-prev {
+        left: 8px;
+    }
+
+    .carousel-btn-next {
+        right: 8px;
     }
 
     .videos-section h3,
@@ -918,13 +1014,13 @@ body {
         font-size: 14px;
     }
 
-    .photo-gallery {
-        grid-template-columns: 1fr;
-        gap: 16px;
+    .carousel-slide img {
+        height: 240px;
     }
 
-    .gallery-item img {
-        height: 260px;
+    .carousel-dots {
+        margin-top: 18px;
+        gap: 8px;
     }
 
     .videos-section,
