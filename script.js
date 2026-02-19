@@ -227,4 +227,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Photo carousel (Media section)
+    (function initCarousel() {
+        var carousel = document.querySelector('.carousel');
+        if (!carousel) return;
+        var track = carousel.querySelector('.carousel-track');
+        var slides = carousel.querySelectorAll('.carousel-slide');
+        var prevBtn = carousel.querySelector('.carousel-btn-prev');
+        var nextBtn = carousel.querySelector('.carousel-btn-next');
+        var dots = carousel.querySelectorAll('.carousel-dot');
+        var total = slides.length;
+        var current = 0;
+
+        function goTo(index) {
+            current = (index + total) % total;
+            var offset = -current * 100;
+            track.style.transform = 'translateX(' + offset + '%)';
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('active', i === current);
+                dot.setAttribute('aria-selected', i === current);
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                goTo(current - 1);
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                goTo(current + 1);
+            });
+        }
+        dots.forEach(function(dot, i) {
+            dot.addEventListener('click', function() {
+                goTo(i);
+            });
+        });
+    })();
 });
