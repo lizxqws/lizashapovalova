@@ -735,6 +735,16 @@ body {
         height: 360px;
     }
 
+    .carousel-slide:nth-child(2) img {
+        transform: scale(2.1);
+        object-position: center -50px;
+    }
+
+    .carousel-slide:nth-child(3) img {
+        transform: scale(2.9);
+        object-position: center -25px;
+    }
+
     .carousel-btn-prev {
         left: 8px;
     }
@@ -876,8 +886,14 @@ body {
         margin-bottom: 36px;
     }
 
-    .carousel-slide img {
-        height: 280px;
+    .carousel-slide:nth-child(2) img {
+        transform: scale(2.6);
+        object-position: center -50px;
+    }
+
+    .carousel-slide:nth-child(3) img {
+        transform: scale(3.8);
+        object-position: center -30px;
     }
 
     .carousel-btn {
@@ -1016,6 +1032,16 @@ body {
 
     .carousel-slide img {
         height: 240px;
+    }
+
+    .carousel-slide:nth-child(2) img {
+        transform: scale(2);
+        object-position: center -30px;
+    }
+
+    .carousel-slide:nth-child(3) img {
+        transform: scale(2.8);
+        object-position: center -20px;
     }
 
     .carousel-dots {
