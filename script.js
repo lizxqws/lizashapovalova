@@ -127,6 +127,13 @@ function switchLanguage(lang) {
             btn.classList.add('active');
         }
     });
+
+    // Update mobile toggle label (УКР / ENG / DEU)
+    const toggleCurrent = document.querySelector('.lang-toggle-current');
+    if (toggleCurrent) {
+        const labels = { uk: 'УКР', en: 'ENG', de: 'DEU' };
+        toggleCurrent.textContent = labels[lang] || lang.toUpperCase();
+    }
     
     // Save language preference to localStorage
     localStorage.setItem('preferred-language', lang);
@@ -139,15 +146,41 @@ function initLanguage() {
     switchLanguage(savedLang);
 }
 
-// Set up language switcher buttons
+// Set up language switcher buttons and mobile toggle
 document.addEventListener('DOMContentLoaded', function() {
     initLanguage();
     
+    var languageSwitcher = document.getElementById('language-switcher');
+    var langToggle = document.getElementById('lang-toggle');
+
+    // Mobile: toggle language dropdown
+    if (langToggle && languageSwitcher) {
+        langToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var isOpen = languageSwitcher.classList.toggle('is-open');
+            langToggle.setAttribute('aria-expanded', isOpen);
+        });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+        if (languageSwitcher && languageSwitcher.classList.contains('is-open')) {
+            languageSwitcher.classList.remove('is-open');
+            if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
     // Add event listeners to language buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var lang = this.getAttribute('data-lang');
             switchLanguage(lang);
+            // Close mobile dropdown after selecting a language
+            if (languageSwitcher && languageSwitcher.classList.contains('is-open')) {
+                languageSwitcher.classList.remove('is-open');
+                if (langToggle) langToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     });
     
@@ -180,7 +213,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            if (href === '#' || href === '#home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',

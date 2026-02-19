@@ -33,10 +33,16 @@
                 <li><a href="#media" data-translate="nav.media">Медіа</a></li>
                 <li><a href="#contacts" data-translate="nav.contacts">Контакти</a></li>
             </ul>
-            <div class="language-switcher">
-                <button class="lang-btn active" data-lang="uk">УКР</button>
-                <button class="lang-btn" data-lang="en">ENG</button>
-                <button class="lang-btn" data-lang="de">DEU</button>
+            <div class="language-switcher" id="language-switcher">
+                <button type="button" class="lang-toggle" id="lang-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Choose language">
+                    <span class="lang-toggle-current">УКР</span>
+                    <span class="lang-toggle-icon" aria-hidden="true">▼</span>
+                </button>
+                <div class="lang-options" role="menu">
+                    <button type="button" class="lang-btn active" data-lang="uk" role="menuitem">УКР</button>
+                    <button type="button" class="lang-btn" data-lang="en" role="menuitem">ENG</button>
+                    <button type="button" class="lang-btn" data-lang="de" role="menuitem">DEU</button>
+                </div>
             </div>
         </div>
     </nav>
