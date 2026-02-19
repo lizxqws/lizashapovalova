@@ -21,6 +21,9 @@ const translations = {
         'media.gallery.title': 'Фотогалерея',
         'contacts.title': 'Контакти',
         'contacts.description': 'Для концертних пропозицій та співпраці звертайтеся за електронною поштою.',
+        'contacts.gmail': 'Відкрити в Gmail',
+        'contacts.copy': 'Копіювати email',
+        'contacts.copied': 'Скопійовано!',
         'footer.name': 'Єлизавета Шаповалова',
         'footer.rights': 'Всі права захищені.'
     },
@@ -45,6 +48,9 @@ const translations = {
         'media.gallery.title': 'Photo Gallery',
         'contacts.title': 'Contacts',
         'contacts.description': 'For concert proposals and collaboration, please contact via email.',
+        'contacts.gmail': 'Open in Gmail',
+        'contacts.copy': 'Copy email',
+        'contacts.copied': 'Copied!',
         'footer.name': 'Yelyzaveta Shapovalova',
         'footer.rights': 'All rights reserved.'
     },
@@ -69,13 +75,20 @@ const translations = {
         'media.gallery.title': 'Fotogalerie',
         'contacts.title': 'Kontakte',
         'contacts.description': 'Für Konzertvorschläge und Zusammenarbeit kontaktieren Sie uns bitte per E-Mail.',
+        'contacts.gmail': 'In Gmail öffnen',
+        'contacts.copy': 'E-Mail kopieren',
+        'contacts.copied': 'Kopiert!',
         'footer.name': 'Yelyzaveta Shapovalova',
         'footer.rights': 'Alle Rechte vorbehalten.'
     }
 };
 
+// Current language (used e.g. for copy button reset)
+let currentLanguage = 'uk';
+
 // Language switching function
 function switchLanguage(lang) {
+    currentLanguage = lang;
     // Update HTML lang attribute
     document.documentElement.lang = lang;
     
@@ -143,6 +156,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const yearElement = document.getElementById('current-year');
     if (yearElement) {
         yearElement.textContent = currentYear;
+    }
+
+    // Copy email button
+    const copyBtn = document.getElementById('copy-email-btn');
+    const contactEmail = document.getElementById('contact-email');
+    if (copyBtn && contactEmail) {
+        copyBtn.addEventListener('click', function() {
+            const email = contactEmail.textContent.trim();
+            const copiedLabel = (translations[currentLanguage] && translations[currentLanguage]['contacts.copied']) || 'Copied!';
+            navigator.clipboard.writeText(email).then(function() {
+                copyBtn.classList.add('copied');
+                copyBtn.textContent = copiedLabel;
+                setTimeout(function() {
+                    copyBtn.classList.remove('copied');
+                    copyBtn.textContent = (translations[currentLanguage] && translations[currentLanguage]['contacts.copy']) || 'Copy email';
+                }, 2000);
+            });
+        });
     }
     
     // Smooth scrolling for navigation links

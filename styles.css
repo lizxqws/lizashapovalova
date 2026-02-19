@@ -450,28 +450,66 @@ body {
 }
 
 .contact-email {
-    font-size: 22px;
+    font-size: 18px;
 }
 
-.contact-email a {
-    color: var(--primary-color);
-    text-decoration: none;
+.contact-email-address {
+    display: block;
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 12px 24px;
-    border-radius: 12px;
-    display: inline-block;
-    background: var(--white);
-    box-shadow: var(--shadow-sm);
-    border: 2px solid transparent;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    word-break: break-all;
 }
 
-.contact-email a:hover {
-    color: var(--accent-color);
+.contact-email-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    min-width: 180px;
+    text-align: center;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--primary-color);
+    background: var(--white);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.contact-btn:hover {
+    color: var(--white);
+    background: var(--primary-color);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    border-color: var(--accent-color);
 }
+
+.contact-btn-gmail {
+    border-color: #ea4335;
+    color: #ea4335;
+}
+
+.contact-btn-gmail:hover {
+    background: #ea4335;
+    color: var(--white);
+}
+
+.contact-btn-copy.copied {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    color: var(--white);
+}
+
 
 /* Footer */
 .footer {
