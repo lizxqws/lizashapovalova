@@ -364,6 +364,26 @@ body {
     text-align: left;
 }
 
+.bio-section p.bio-multiline {
+    white-space: pre-line;
+}
+
+.bio-section .bio-list {
+    margin: 12px 0 0;
+    padding-left: 24px;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.bio-section .bio-list li {
+    margin-bottom: 8px;
+}
+
+.bio-section .bio-list li:last-child {
+    margin-bottom: 0;
+}
+
 /* Media Section */
 .media-section {
     background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
@@ -715,6 +735,10 @@ body {
         font-size: 16px;
     }
 
+    .bio-section .bio-list {
+        font-size: 16px;
+    }
+
     .videos-section,
     .gallery-section {
         margin-bottom: 60px;
@@ -880,6 +904,10 @@ body {
         font-size: 15px;
     }
 
+    .bio-section .bio-list {
+        font-size: 15px;
+    }
+
     .video-grid {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1027,6 +1055,10 @@ body {
     }
 
     .bio-section p {
+        font-size: 14px;
+    }
+
+    .bio-section .bio-list {
         font-size: 14px;
     }
 
