@@ -364,6 +364,10 @@ body {
     text-align: left;
 }
 
+.bio-section p.bio-multiline {
+    white-space: pre-line;
+}
+
 .bio-section .bio-list {
     margin: 12px 0 0;
     padding-left: 24px;
